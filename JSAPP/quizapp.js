@@ -86,18 +86,19 @@ function validateSelectedAnswer() {
     // Disable all options after selection
     let options = document.querySelectorAll('input[name="option"]');
     options.forEach(button => {
-        button.disabled = true;
+        button.disabled = false;
     });
 
     // Check if the selected answer is correct
     if (selectedAnswer === correctAnswer) {
         score++; // Increase score
-        document.getElementById("score").textContent = score;
-        selectedOption.nextElementSibling.classList.add("correct");
-    } else {
-        selectedOption.nextElementSibling.classList.add("incorrect");
-        let correctOption = [...options].find(option => option.value === correctAnswer);
-        correctOption.nextElementSibling.classList.add("correct");
+        const options = document.querySelectorAll(".option");
+    options.forEach(option => {
+      option.onclick = null; // Disable click on all options
+      if (option.textContent === correctAnswer) {
+      } else if (option.textContent === selectedOption) {
+      }
+    });
     }
 
     // Show next question button after an answer is selected
