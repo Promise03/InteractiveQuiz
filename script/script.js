@@ -20,7 +20,7 @@ let quizData = [
         correctAnswer: "console.log()"
     },
     {
-        question: `3 + 2 + "5"`,
+        question: `3 + 4 + "5"`,
         options: [7, "25", "75", "NaN"],
         correctAnswer: "75"
     }
@@ -59,10 +59,13 @@ function displayQuestion() {
 
         // Add to options container
         optionsContainer.appendChild(optionWrapper);
+        
     });
 
     // Hide the next button until an answer is selected
     document.getElementById("next-btn").style.display = "none";
+    document.getElementById("previous-btn").style.display = "none";
+    document.getElementById("submit-btn").style.display = "none";
 
     // Enable the "Next" button only after an answer is selected
     document.querySelectorAll('input[name="option"]').forEach(radio => {
@@ -70,59 +73,78 @@ function displayQuestion() {
     });
 }
 
-// Validate the user's selection
 function validateSelectedAnswer() {
     let selectedOption = document.querySelector('input[name="option"]:checked');
-
     if (!selectedOption) {
         alert("Please select an answer.");
         return;
     }
 
-    let selectedAnswer = selectedOption.value; // Get the selected option value
-    let question = quizData[currentQuestionIndex];
-    let correctAnswer = question.correctAnswer;
-
-    // Disable all options after selection
-    let options = document.querySelectorAll('input[name="option"]');
-    options.forEach(button => {
-        button.disabled = false;
-    });
+    let selectedAnswer = selectedOption.value;
+    let correctAnswer = quizData[currentQuestionIndex].correctAnswer;
 
     // Check if the selected answer is correct
     if (selectedAnswer === correctAnswer) {
         score++; // Increase score
-        const options = document.querySelectorAll(".option");
-    options.forEach(option => {
-      option.onclick = null; // Disable click on all options
-      if (option.textContent === correctAnswer) {
-      } else if (option.textContent === selectedOption) {
-      }
-    });
     }
 
-    // Show next question button after an answer is selected
-    document.getElementById("next-btn").style.display = "block";
-}
+    // Disable all options after selection
+    let options = document.querySelectorAll('input[name="option"]');
+    options.forEach(button => {
+        button.disabled = true;
+    });
 
-// Go to the next question
+    // Show next & previous buttons
+    document.getElementById("next-btn").style.display = "block";
+    document.getElementById("previous-btn").style.display = "block";
+}
+    
+    
+
+
+// Go to the previous question
+
 function nextQuestion() {
     currentQuestionIndex++;
 
     if (currentQuestionIndex < quizData.length) {
         displayQuestion();
     } else {
-        alert(`Quiz Finished! Your final score is ${score}`);
-        // Reset quiz if needed
-        currentQuestionIndex = 0;
-        score = 0;
-        document.getElementById('score').textContent = score;
-        displayQuestion();
+        // Quiz is over, show the score
+        showScore();
+        document.getElementById("submit-btn").style.display = "none";
+        document.getElementById("next-btn").style.display = "none";
+        document.getElementById("previous-btn").style.display = "none";
     }
 }
+
+
+
+
+function showScore() {
+    let result = document.getElementById("result");
+    result.textContent = `You scored ${score} out of ${quizData.length}`;
+    result.style.display = "block"; // Make sure it's visible
+    document.getElementById("question-container").style.display = "none";
+    document.getElementById("options-container").style.display = "none";
+}
+
+
+
+function submit() {
+    document.getElementById("question-container").style.display = "none";
+    document.getElementById("options-container").style.display = "none";
+    document.getElementById("next-btn").style.display = "none";
+    document.getElementById("previous-btn").style.display = "none";
+    document.getElementById("submit-btn").style.display = "none";
+    showScore();
+}
+
+
 
 // Initialize the first question
 displayQuestion();
 
 // Add event listener for next question button to go to the next question
 document.getElementById("next-btn").onclick = nextQuestion;
+document.getElementById("previous-btn").onclick = previousQuestion

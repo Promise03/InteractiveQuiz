@@ -12,7 +12,12 @@
             <h1>Interactive Quiz</h1>
             <div id="question-container"></div>
             <div id="options-container"></div>
-            <button id="next-btn" onclick="nextQuestion()" style="display: none;">Next</button>
+            <div class="btn">
+                <button id="previous-btn" onclick="previouQuestion()" style="display: none;">Previous</button>
+                <button id="next-btn" onclick="nextQuestion()" style="display: none;">Next</button>
+                <button id="submit-btn" onclick="submit()">Submit</button>
+            </div>
+           
             <div id="result"></div>
         </div>
     </div>

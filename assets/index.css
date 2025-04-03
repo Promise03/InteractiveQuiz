@@ -15,7 +15,7 @@ body{
     background-color: aliceblue;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    width: 700px;
     text-align: center;
 }
 button{
@@ -52,4 +52,11 @@ button:hover{
 }
 .incorrect {
     background-color: red;
+}
+.btn{
+    display: flex;
+    justify-content: space-between;
+}
+#options-container{
+    display: flex;
 }
