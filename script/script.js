@@ -23,7 +23,38 @@ let quizData = [
         question: `3 + 4 + "5"`,
         options: [7, "25", "75", "NaN"],
         correctAnswer: "75"
-    }
+    },
+    {
+        question: "What property is used to change the background color of an element in CSS?",
+        options: ["bg-color", "bg-color", "color", "background-color"],
+        correctAnswer: "color"
+    },
+    {
+        question: "Which attribute is used to provide alternative text for an image in HTML?",
+        options: ["image-text", "src", "alt", "title"],
+        correctAnswer: "alt"
+    },
+    {
+        question: "Which tag is used to define a table in HTML?",
+        options: ["<thead>", "<td>", "<tr>", "<table>"],
+        correctAnswer: "<table>"
+    },
+    {
+        question: "Which property is used to center text within an element in CSS?",
+        options: ["center-align: true;", "text-align: center;", "text-center: true;", "align-text: center;"],
+        correctAnswer: "text-align: center;"
+    },
+    {
+        question: "How do you declare a variable in JavaScript?",
+        options: ["var x = 10;", "let x = 10;", "const x = 10;", "All of the above"],
+        correctAnswer: "All of the above"
+    },
+    {
+        question: "Which tag is used to define an unordered list?",
+        options: ["<li>", "<ul>", "<list>", "<ol>"],
+        correctAnswer: "<ul>"
+    },
+   
 ];
 
 let currentQuestionIndex = 0;
