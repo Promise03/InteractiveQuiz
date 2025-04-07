@@ -17,6 +17,7 @@ body{
     border-radius: 10px;
     width: 400px;
     text-align: center;
+    box-shadow: 1px 1px 10px 10px rgb(166, 228, 211);
 }
 button{
     padding: 10px 20px;
@@ -33,6 +34,8 @@ button:hover{
 
 #options-container{
     margin: 20px 0;
+    display: flex;
+
 }
 .option {
     display: block;
@@ -56,7 +59,4 @@ button:hover{
 .btn{
     display: flex;
     justify-content: space-between;
-}
-#options-container{
-    display: flex;
 }
