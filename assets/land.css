@@ -38,7 +38,10 @@ button {
   color: black;
   border: none;
   cursor: pointer;
-}
+  /* animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  animation-duration: 2ms;
+  /* animation-play-state: ; */
+} 
 button:hover {
   background-color: blue;
   color: white;

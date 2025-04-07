@@ -135,8 +135,9 @@ function validateSelectedAnswer() {
 
 // Go to the previous question
 
-function nextQuestion() {
-    currentQuestionIndex++;
+
+function previousQuestion() {
+    currentQuestionIndex--;
 
     if (currentQuestionIndex < quizData.length) {
         displayQuestion();
@@ -144,6 +145,19 @@ function nextQuestion() {
         // Quiz is over, show the score
         showScore();
         document.getElementById("submit-btn").style.display = "none";
+        document.getElementById("next-btn").style.display = "none";
+        document.getElementById("previous-btn").style.display = "none";
+    }
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < quizData.length) {
+        displayQuestion();
+    } else {
+        // Quiz is over, show the score
+        document.getElementById("submit-btn").style.display = "block";
         document.getElementById("next-btn").style.display = "none";
         document.getElementById("previous-btn").style.display = "none";
     }

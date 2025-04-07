@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Quiz</title>
-    <link rel="stylesheet" href="./assets/land.css">
+    <link rel="stylesheet" href="./assets/index.css">
 </head>
 <body>
-        <!-- <nav>
-            <div class="logo">
-                <img src="./assets/Photo_1743689878454.png" alt="logo" width="6%">
+        <div>
+            <div id="quiz-container">
+                <h1>Interactive Quiz</h1>
+                <div id="question-container"></div>
+                <div id="options-container"></div>
+                <div class="btn">
+                    <button id="previous-btn" onclick="previouQuestion()" style="display: none;">Previous</button>
+                    <button id="next-btn" onclick="nextQuestion()" style="display: none;">Next</button>
+                    <button id="submit-btn" onclick="submit()">Submit</button>
+                </div>
+               
+                <div id="result"></div>
             </div>
-        </nav> -->
-        <div id="land-page">
-
-            <div class="text-area">
-                <h1>
-                    Play Online Quiz To Check Ability On FrontEnd Class
-                </h1>
-                <a href="./index.html" target="_self"><button>Start Now</button></a>
-            </div>
-            
-           
         </div>
+        <script src="./script/script.js"></script>
     
 </body>
 </html>
